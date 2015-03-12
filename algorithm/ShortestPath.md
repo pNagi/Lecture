@@ -1,12 +1,12 @@
 #Shortest Path Problem
 
-###Dijstra's Algorithm
-
 Given an **undirected weighted** graph,
 G = (V, E, W) and given `source` node and `target` node.
 For any `edge` e there is `weight` w[e] and w[e] >= 0.
 
 Goal: Find the **minimum** weighted path from source to target
+
+###Dijstra's Algorithm
 
 #####Psuedo Code
 
@@ -54,10 +54,15 @@ Goal: Find the **minimum** weighted path from source to target
     
 #####Big O
 
+`O(|E| |decrease-key(Q)| + |V| |extract-min(Q)|)`
+
 |  | Array | Sorted Array | Sorted LinkList | Heap |
 |---|---|---|---|---|
-| ExtractMin | O(n) | O(1) | O(1) | O(nlog(n)) |
-| Update | O(1) | O(n) | O(n) | O(mlog(n)) |
-| TOTAL | O(n^2) > O(n^2) | O(mn) | O(mn) | O(mlog(n)) CHECK PLS |
+| ExtractMin | `O(n)` | `O(1)` | `O(1)` | `O(nlog(n))` |
+| Update | `O(1)` | `O(n)` | `O(n)` | `O(mlog(n))` |
+| TOTAL | `O(n^2)` | `O(mn)` | `O(mn)` | `O(mlog(n))` CHECK PLS |
 
 สรุป `Heap` เร็วสุด
++ Fibonacci heap: `O(|E| + |V| log |V|)`
++ binary heap: `O((|E| + |V|) log |V|)`
++ unsorted array: `O(|V|^2)`
