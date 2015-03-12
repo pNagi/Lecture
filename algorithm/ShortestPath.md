@@ -42,3 +42,20 @@ Goal: Find the **minimum** weighted path from source to target
 
 [Credit: wiki](http://en.wikipedia.org/wiki/Dijkstra's_algorithm)
 
+    S = {source}
+    while (S != emptyset)
+        u = ExtractMin(S)
+        for every edge e = (u, x)
+            if (d(u) + w[e] < d(x))             // อัพเดทถ้าเส้นทางที่มา + weight ใหม่ น้อยกว่า min ปัจจุบัน
+                Update(d(x))                    // if new distance is smaller so we keep it
+            end if
+        end for
+    end while
+    
+#####Big O
+
+|  | Array | Sorted Array | Sorted LinkList|
+|---|---|---|---|
+| ExtractMin | O(n) | O(1) | O(n) |
+| Update | O(1) | O(logn) > O(n) shift | O(n) > O(1) |
+| TOTAL | O(n^2 + m) > O(n^2) | O(mn) | O(mn) |
