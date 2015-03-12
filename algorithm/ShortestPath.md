@@ -54,8 +54,10 @@ Goal: Find the **minimum** weighted path from source to target
     
 #####Big O
 
-|  | Array | Sorted Array | Sorted LinkList|
-|---|---|---|---|
-| ExtractMin | O(n) | O(1) | O(n) |
-| Update | O(1) | O(logn) > O(n) shift | O(n) > O(1) |
-| TOTAL | O(n^2 + m) > O(n^2) | O(mn) | O(mn) |
+|  | Array | Sorted Array | Sorted LinkList | Heap |
+|---|---|---|---|---|
+| ExtractMin | O(n) | O(1) | O(1) | O(nlog(n)) |
+| Update | O(1) | O(n) | O(n) | O(mlog(n)) |
+| TOTAL | O(n^2) > O(n^2) | O(mn) | O(mn) | O(mlog(n)) CHECK PLS |
+
+สรุป `Heap` เร็วสุด
