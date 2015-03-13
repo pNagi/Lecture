@@ -33,6 +33,35 @@ Ex.
                 The parent of (v) is set to be (u)
                 The priority of (v) is the weight of (u, v)
 
+psuedo code
+
+    source = randomly pick
+    cost[source] ← 0
+    prev[source] ← undefined
+    pass[source] ← false
+    
+    for each vertex v in Graph:             // Initialization
+        if v ≠ source                       // Where v has not yet been removed from Q (unvisited nodes)
+            cost[v] ← infinity              // Unknown weight from source to v
+            pass[v] ← false                 // Node is not passed
+        end if
+        add v to Q                          // All nodes initially in Q (unvisited nodes)
+    end for
+    
+    while Q is not empty:
+        u = Q.extractMin()                  // Source node in first case
+        remove u from Q
+        
+        for each neighbor v of u:           // where v is still in Q.
+            if !pass[v] && weight(u, v) < cost[v]:
+                cost[v] ← weight(u, v)
+                Q.decreaseKey(v, cost[v])
+                prev[v] ← u
+            end if
+            pass[u] = true;
+        end for
+    end while
+    
 | Minimum edge weight data structure | Time complexity (total) |
 |---|---|
 | adjacency matrix, searching	| `O(|V|2)` |
