@@ -9,6 +9,7 @@ There is weight w[e] on edge
 Goal: Find Minimum-cost spanning tree
 
 Def: Spanning Tree is a tree that contains all nodes
+
 Ex.
 + BFS/DFS tree
 + Shortest Path Tree
@@ -71,6 +72,29 @@ psuedo code
 [psuedo code](http://www.stoimen.com/blog/2012/11/19/computer-algorithms-prims-minimum-spanning-tree/)
 [prim's algorithm running time analysis](https://www.cse.ust.hk/~dekai/271/notes/L07/L07.pdf)
 
+Queue          |  T_e   |  T_d   |  T_k   | w/o Dec-Key |   w/Dec-Key
+---------------|--------|--------|--------|-------------|---------------
+Binary Heap    |O(log N)|O(log N)|O(log N)| O(M log N)  |   O(M log N)
+Binomial Heap  |O(log N)|O(log N)|O(log N)| O(M log N)  |   O(M log N)
+Fibonacci Heap |  O(1)  |O(log N)|  O(1)  | O(M log N)  | O(M + N log N)
+
+T_e = enqueue
+T_d = dequeue
+T_k = decrease key
+
+[credit: stackoverflow](http://stackoverflow.com/questions/9255620/why-does-dijkstras-algorithm-use-decrease-key)
+
 ###3. Kruskal's Algorithm
+
+    KRUSKAL(G):
+    A = ∅
+    foreach v ∈ G.V:
+        MAKE-SET(v)
+    sort the edges of G.E into nondecreasing order be weight(u, v)
+    foreach edge ordered by weight(u, v):
+        if FIND-SET(u) ≠ FIND-SET(v):
+            A = A ∪ {(u, v)}
+            UNION(u, v)
+    return A
 
 ###4. Reverse-delete algorithm
