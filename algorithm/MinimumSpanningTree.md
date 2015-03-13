@@ -36,13 +36,13 @@ Ex.
 psuedo code
 
     source = randomly pick
-    cost[source] ← 0
+    key[source] ← 0
     prev[source] ← undefined
     pass[source] ← false
     
     for each vertex v in Graph:             // Initialization
         if v ≠ source                       // Where v has not yet been removed from Q (unvisited nodes)
-            cost[v] ← infinity              // Unknown weight from source to v
+            key[v] ← infinity              // Unknown weight from source to v
             pass[v] ← false                 // Node is not passed
         end if
         add v to Q                          // All nodes initially in Q (unvisited nodes)
@@ -53,9 +53,9 @@ psuedo code
         remove u from Q
         
         for each neighbor v of u:           // where v is still in Q.
-            if !pass[v] && weight(u, v) < cost[v]:
-                cost[v] ← weight(u, v)
-                Q.decreaseKey(v, cost[v])
+            if !pass[v] && weight(u, v) < key[v]:
+                key[v] ← weight(u, v)
+                Q.decreaseKey(v, key[v])
                 prev[v] ← u
             end if
             pass[u] = true;
