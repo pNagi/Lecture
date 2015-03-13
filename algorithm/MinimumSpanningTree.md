@@ -1,3 +1,6 @@
+Every connected graph has spanning tree
+Note that if all edges are distinct = easier to proof
+
 #Minimum Spanning Tree
 
 Given an weighted directed graph G = (V, E, W)
@@ -17,6 +20,8 @@ Ex.
 
 ###2. Prim's Algorithm
 
+[GREAT NOTES!](https://www.cse.ust.hk/~dekai/271/notes/L07/L07.pdf)
+
     Make a queue (Q) with all the vertices of G (V);
     For each member of Q set the priority to INFINITY;
     Only for the starting vertex (s) set the priority to 0;
@@ -33,6 +38,9 @@ Ex.
 | adjacency matrix, searching	| `O(|V|2)` |
 | binary heap and adjacency list	| `O((|V| + |E|) log |V|)` = `O(|E| log |V|)` |
 | Fibonacci heap and adjacency list	| `O(|E| + |V| log |V|)` |
+
+[psuedo code](http://www.stoimen.com/blog/2012/11/19/computer-algorithms-prims-minimum-spanning-tree/)
+[prim's algorithm running time analysis](https://www.cse.ust.hk/~dekai/271/notes/L07/L07.pdf)
 
 ###3. Kruskal's Algorithm
 
