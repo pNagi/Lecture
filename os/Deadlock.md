@@ -70,17 +70,20 @@ A set of vertices V and a set of edges E
  + ไม่ให้ยืมถ้าไม่คืนของเก่า
  + ข้อเสีย คือ อาจทำให้เกิด `starvation`
 3. Force Preemption
+ + ถ้า tasks ที่ทำอยู่ request ไปที่ resources อื่นแล้วไม่ได้ให้บังคับคืนของเก่าทั้งหมด
 4. Prevent Circular Wait
+ + total ordering โดยกำหนดให้การขอ resource ต้องขอจากน้อยไปมากเท่านั้น
+ + ถ้าต้องการตัวน้อย ให้ขอก่อน
 
 ### Deadlock Avoidance
 จำลอง state
 
-BASIC FACTS
+#####BASIC FACTS
 + if system in `safe state` = no deadlock
 + if system in `unsafe state` = possibility of deadlock
 + Avoidance = การันตีว่า system จะไม่เข้า `unsafe state`
 
-Avoidance Algorithms
+####Avoidance Algorithms
 1. Single instance (deadlock แน่ ๆ ถ้ามี cycle)
  + ใช้ resource-allocation graph
 2. Multiple instances (ถ้ามี cycle อาจจะเกิด deadlock)
@@ -88,11 +91,16 @@ Avoidance Algorithms
 
 #####Resource-allocation graph Algorithm
 
+//eiei
+
 #####Banker's Algorithm
 + Multiple instances
 + Each process must a priori claim maximum use
 + When a process requests a resource it may have to wait
 + When a process gets all its resources it must return them in a finite amount of time
+
+//eiei
+
 
 ####Detection
 1. Single instance
