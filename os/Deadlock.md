@@ -36,3 +36,17 @@ Deadlock เกิดก็ต่อเมื่อ condition ต่อไปน
  ...
  pn รอ resource ที่ p0 ถืออยู่
  **สรุปคือรอวนกันเป็นวงกลม**
+
+Deadlock with Mutex Locks
++ Deadlocks can occur via system calls, locking, etc.
+
+#### Resource-Allocation Graph
+
+A set of vertices V and a set of edges E
++ V is partitioned in to two types:
+ + P = {p1, p2, p3,...,pn}, set consists of all processes in the system
+ + R = {r1, r2, r3,...,rn}, set consists of all resource types in the system
++ **request edge** - directed edge Pi->Rj
++ **assignment edge** - directed edge Rj->Pi
+
+
