@@ -24,10 +24,13 @@
 ### Deadlock Characterization
 `Deadlock` เกิดก็ต่อเมื่อ condition ต่อไปนี้เกิดขึ้นพร้อมกัน
 + **Mutual exclusion**
- + only one process at a time can use a resource
+ + `resource` นึงสามารถถูกใช้โดย `process` ได้แค่ 1 `process`
+ + only one `process` at a time can use a `resource`
 + **Hold and wait**
+ + `process` hold `resource` ไว้แล้ว wait `resource` ตัวอื่น
  + a process holding at least one resource is waiting to acquire(ได้รับ) additional resources held by other process
 + **No preemption**(การจอง)
+ + `resource` จะถูก release ได้ก็ต่อเมื่อ `process` ที่เป็นเจ้าของมันสั่งเท่านั้น (ซึ่งจะ release ก็ต่อเมื่อ tasks  ของ process  นั้น ๆ เสร็จ)
  + a resource can be released only voluntarily(อย่างสมัครใจ) by the process holding it, after the process has completed its task
 + **Circular wait**
  + สมมุติมี set of process {p0, p1, p2,...,pn}
@@ -78,9 +81,9 @@ BASIC FACTS
 + Avoidance = การันตีว่า system จะไม่เข้า `unsafe state`
 
 Avoidance Algorithms
-+ Single instance (deadlock แน่ ๆ ถ้ามี cycle)
+1. Single instance (deadlock แน่ ๆ ถ้ามี cycle)
  + ใช้ resource-allocation graph
-+ Multiple instances (ถ้ามี cycle อาจจะเกิด deadlock)
+2. Multiple instances (ถ้ามี cycle อาจจะเกิด deadlock)
  + ใช้ Banker's algorithm
 
 #####Resource-allocation graph Algorithm
@@ -91,3 +94,28 @@ Avoidance Algorithms
 + When a process requests a resource it may have to wait
 + When a process gets all its resources it must return them in a finite amount of time
 
+####Detection
+1. Single instance
+ + ถ้าวาดกราฟแล้วมี cycle เป็น deadlock แน่ ๆ
+2. Several instances
+ + ใช้วิธีคล้าย ๆ Banker's Algorithm
+ + วนจนแก้อะไรไม่ได้แล้วตัวที่ finish[i] เป็น false คือตัวที่ติด deadlock (มีหลายตัว)
+
+####Recovery from Deadlock
+
+##### Process Termination
++ Two basic approaches
+ + ยกเลิก(ทำให้ล้มเหลว) all deadlocked processes
+ + ยกเลิกทีละ process จนกว่า deadlock cycle จะหมด
++ วิธีการเลือก process ที่จะ abort(ยกเลิก)
+ 1. priority of the process
+ 2. how long process computed, และ จะเสร็จเมื่อไหร่
+ 3. จำนวน resources ที่ process ใช้อยู่
+ 4. จำนวน resources ที่เหลือที่จะทำให้ process complete
+ 5. how many processes will need to be terminated
+ 6. process มีการ interactive(มีการสื่อสารระหว่างกัน) หรือรวมกลุ่มกันอยู่หรือเปล่า
+
+##### Resource Preemption
++ Selecting a victim - minimize cost
++ Rollback - return to some safe state, restart process for that state
++ Starvation - same process may always be picked as victim, include number of rollback in cost factor
