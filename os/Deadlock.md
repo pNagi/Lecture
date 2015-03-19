@@ -1,4 +1,4 @@
-### Table of Content
+## Table of Content
 + System Model
 + Deadlock Characterization
 + Methods for Handling Deadlocks
@@ -11,7 +11,7 @@
 + To develop a description of deadlocks, which prevent sets of concurrent(ประจวบเหมาะ) processes from completing their tasks
 + To present a number of different methods for preventing or avoiding deadlocks in a computer system
 
-#### System Model
+### System Model
 + System consists of `resources`
 + `Resources type` R1, R2, R3,...,Rm
  + เช่น *CPU cycles, memory space, I/O devices*
@@ -21,7 +21,7 @@
  + **use**
  + **release**
  
-#### Deadlock Characterization
+### Deadlock Characterization
 `Deadlock` เกิดก็ต่อเมื่อ condition ต่อไปนี้เกิดขึ้นพร้อมกัน
 + **Mutual exclusion**
  + only one process at a time can use a resource
@@ -47,7 +47,7 @@ A set of vertices V and a set of edges E
 + **request edge** - directed edge Pi->Rj
 + **assignment edge** - directed edge Rj->Pi
 
-#### Methods for Handling Deadlock
+### Methods for Handling Deadlock
 วิธีรับมือกับ deadlock
 + เมินมัน
  + สมมุติว่า deadlock ไม่มีทางเกิดขึ้น เพราะโอกาสเกิดขึ้นน้อยมาก (OS ส่วนใหญ่ใช้วิธีนี้เช่น UNIX)
@@ -57,17 +57,37 @@ A set of vertices V and a set of edges E
  + Deadlock prevention
  + Deadlock avoidance
 
-#### Deadlock Prevention
+### Deadlock Prevention
 เนื่องจากการเกิด `deadlock` มี condition 4 แบบ เราเลยออกแบบ OS ให้ condition ขาดไปข้อนึงจะได้ไม่เกิด `deadlock`
+
 1. No Mutual Exclusion
  + ไม่ล็อค resource
  + shared resources เช่น read-only files ที่ไม่ทำให้เกิด deadlock
 2. ทำให้ไม่มี Hold and Wait
+ + ไม่ให้ยืมถ้าไม่คืนของเก่า
+ + ข้อเสีย คือ อาจทำให้เกิด `starvation`
 3. Force Preemption
 4. Prevent Circular Wait
 
-#### Deadlock Avoidance
+### Deadlock Avoidance
 จำลอง state
 
-##### Deadlock Avoidance Algorithms
-Banker Algorithm
+BASIC FACTS
++ if system in `safe state` = no deadlock
++ if system in `unsafe state` = possibility of deadlock
++ Avoidance = การันตีว่า system จะไม่เข้า `unsafe state`
+
+Avoidance Algorithms
++ Single instance (deadlock แน่ ๆ ถ้ามี cycle)
+ + ใช้ resource-allocation graph
++ Multiple instances (ถ้ามี cycle อาจจะเกิด deadlock)
+ + ใช้ Banker's algorithm
+
+#####Resource-allocation graph Algorithm
+
+#####Banker's Algorithm
++ Multiple instances
++ Each process must a priori claim maximum use
++ When a process requests a resource it may have to wait
++ When a process gets all its resources it must return them in a finite amount of time
+
