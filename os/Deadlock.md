@@ -57,3 +57,17 @@ A set of vertices V and a set of edges E
  + Deadlock prevention
  + Deadlock avoidance
 
+#### Deadlock Prevention
+เนื่องจากการเกิด `deadlock` มี condition 4 แบบ เราเลยออกแบบ OS ให้ condition ขาดไปข้อนึงจะได้ไม่เกิด `deadlock`
+1. No Mutual Exclusion
+ + ไม่ล็อค resource
+ + shared resources เช่น read-only files ที่ไม่ทำให้เกิด deadlock
+2. ทำให้ไม่มี Hold and Wait
+3. Force Preemption
+4. Prevent Circular Wait
+
+#### Deadlock Avoidance
+จำลอง state
+
+##### Deadlock Avoidance Algorithms
+Banker Algorithm
