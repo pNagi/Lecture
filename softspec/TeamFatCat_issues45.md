@@ -108,3 +108,16 @@ __Steps__
  6. Repeat 2-6 until it can run
 
 อาจจะมาเขียนต่อให้ละเอียดกว่านี้ถ้าไม่ขี้เกียจ
+
+#### Project.java
+
+##### findall 
+ 
+  1. PC.addProjectPage()
+  2. PC.projectlist()
+
+##### byId
+ 
+  1. PC.project()
+  2. VC.manageVote()
+  3. VC.vote()
