@@ -1,3 +1,5 @@
+แบบนี้น่าจะเข้าใจง่ายดี
+
 ### User.java
 
 1. Change `Finder<Long, User> find` access modifiers to `private`
