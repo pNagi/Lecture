@@ -92,3 +92,16 @@
   then modify following method(s) from `Team.find.where().eq("name", <name>).findUnique()` to `Team.findByName(<name>)`
   
    1. Application.addMember()
+
+
+Repeat this for Vote.java and Project.java
+
+Steps
+1. change accessibility of `find` to private
+2. run in localhost
+3. see which part need to fixed
+4. create a new method in models
+5. then in controller make it call new method that you just create (instead of using for find)
+6. Repeat 2-6 until it can run
+
+อาจจะมาเขียนต่อให้ละเอียดกว่านี้ถ้าไม่ขี้เกียจ
