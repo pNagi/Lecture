@@ -121,3 +121,11 @@ __Steps__
   1. PC.project()
   2. VC.manageVote()
   3. VC.vote()
+
+#### Vote.java
+
+##### findall
+
+  1. PC.project()
+  2. VC.manageVote()
+  3. VC.result()
