@@ -1,10 +1,10 @@
-### USER
+#### User.java
 
 1. Change `Finder<Long, User> find` access modifiers to `private`
 
 2. Add methods
 
- - getAllUsers()
+ ###### getAllUsers()
  ```
  public static List<User> getAllUsers() {
     return find.all();
@@ -16,7 +16,7 @@
    2. Application.addUser()
    3. Application.team()
   
- - deleteUserById(long id)
+ ##### deleteUserById(long id)
  ```
  public static void deleteById(long id) {
     find.ref(id).delete();
@@ -26,7 +26,7 @@
   
    1. Application.clearUsers()
   
- - findById(long id)
+ ##### findById(long id)
  ```
  public static User findById(long id) {
     return find.byId(id);
@@ -40,7 +40,7 @@
    4. VoteController.vote()
    5. Team.getMembers()
 
- - findByUsername(String username)
+ ##### findByUsername(String username)
  ```
  public static User findByUsername(String username) {
     return find.where().eq("username", username).findUnique();
