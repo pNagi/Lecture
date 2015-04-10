@@ -10,7 +10,7 @@
         return find.all();
     }
     ```
-        then modify following method(s) from `User.find.all()` to `User.getAllUsers()`
+    then modify following method(s) from `User.find.all()` to `User.getAllUsers()`
     
         1. Application.user()
         2. Application.addUser()
@@ -23,7 +23,7 @@
     }
     ```
     
-        then modify following method(s) from `User.find.red(<id>).delete()` to `User.deleteById(<id>)`
+    then modify following method(s) from `User.find.red(<id>).delete()` to `User.deleteById(<id>)`
         
         1. Application.clearUsers()
   
@@ -34,7 +34,7 @@
     }
     ```
     
-        then modify following method(s) from `User.find.byId(<id>)` to `User.findById(<id>)`
+    then modify following method(s) from `User.find.byId(<id>)` to `User.findById(<id>)`
         
         1. ProjectController.project()
         2. ProjectController.projectlist()
@@ -49,7 +49,7 @@
     }
     ```
     
-        then modify following method(s) from `Userfind.where().eq("username", <username>).findUnique()` to `User.findByUsername(<username>)`
+    then modify following method(s) from `Userfind.where().eq("username", <username>).findUnique()` to `User.findByUsername(<username>)`
         
         1. Application.test()
         2. Application.authenticate()
