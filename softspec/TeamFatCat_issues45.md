@@ -94,7 +94,7 @@
    1. Application.addMember()
 
 
-Repeat this for Vote.java and Project.java
+#### Repeat this for Vote.java and Project.java
 
 __Steps__
 
