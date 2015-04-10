@@ -66,6 +66,7 @@
  }
  ```
   then modify following method(s) from `Team.find.all()` to `Team.getAllTeams()`
+  
    1. Application.team()
    2. ProjectController.addProjectPage
  
@@ -77,8 +78,9 @@
  ```
  
   then modify following method(s) from `Team.find.byId(<id>)` to `Team.findById(<id>)`
-  1. Application.removeMemberFromTeam()
-  2. ProjectController.project()
+  
+   1. Application.removeMemberFromTeam()
+   2. ProjectController.project()
  
  ##### findByName()
   ```
@@ -88,4 +90,5 @@
  ```
     
   then modify following method(s) from `Team.find.where().eq("name", <name>).findUnique()` to `Team.findByName(<name>)`
+  
    1. Application.addMember()
