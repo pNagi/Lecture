@@ -16,3 +16,5 @@
 	- `VoteController.vote()`
 	- `VoteController.result()`
 	- `ProjectController.addProjectPage()`
+
+7. Run and test if bug
