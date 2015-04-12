@@ -17,4 +17,5 @@
 	- `VoteController.result()`
 	- `ProjectController.addProjectPage()`
 
-7. Run and test if bug
+7. แปปลืมเขียนข้อ 7
+8. Run and test if bug
