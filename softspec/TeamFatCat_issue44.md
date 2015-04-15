@@ -45,4 +45,12 @@
 	- `VoteController.result()`
 	- `ProjectController.addProjectPage()`
 
+เวลาแอดแล้วมันจะได้ประมาณนี้
+
+    @Security.Authenticated(Secured.class)
+    public static Result result() {
+        List<Vote> voteList = Vote.getAllVotes();
+        return ok(views.html.result.render(voteList));
+    }
+
 7. Run and test if bug
