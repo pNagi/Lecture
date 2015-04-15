@@ -23,7 +23,8 @@
 เพราะงั้นเราจะต้องเขียนโค้ดแบบนี้ให้กับทุก ๆ page ที่ต้องการ user ที่ login แล้วเท่านั้นถึงมี permission ในการเข้าถึง
 แล้วในเมื่อมันลำบาก play framework ก็เลยมีอะไรช่วยให้มันไม่ลำบากโดยการที่มีตัว **Authenticator มาให้เราเช็คโดยเฉพาะ**
 
-### Step
+## Step
+### ใช้ Authenticator
 
 1. Rename `SecurityController.java` to `Secured.java` (เหตุผลคือชื่อแม่งยาวไป เอาตามที่ guide สอนมาดีกว่า)
 
