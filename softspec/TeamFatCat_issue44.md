@@ -36,7 +36,7 @@
 
 5. modify return statement of `onUnauthorized` to `return redirect(routes.Application.login());`
 
-6. Add `@Security.Authenticated(Secured.class)` above method to
+6. Add `@Security.Authenticated(Secured.class)` แปะไว้บน method
 	- `Application.team()`
 	- `Application.user()`
 	- `ProjectController.project()`
