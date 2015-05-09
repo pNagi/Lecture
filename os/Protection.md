@@ -144,14 +144,14 @@ _`capability list` = <`object`, `rights-set`>_<br>
 + Generally, a sparse matrix
 + Option 1 - Global Table
  + เก็บ ordered triples <`domain`, `object`, `right-set`> ใน table
- +  `A` requested คำสั่ง (operation) `oj` ที่ `domain` `di` โดยการ search จาก table เพื่อหา <`di`, `oj`, `rk`>
+ + เวลา `domain` จะสั่งคำสั่ง M บน `oj` มันก็จะไป search จาก table เพื่อหา <`di`, `oj`, `rk`>
  <ul>
   <li> โดยที่ M ต้องเป็นคำสั่งที่อยู่ใน set ของ `Rk`</li>
  </ul>
  + ข้อเสียคือ table จะใหญ่มาก ทำให้ main memory ไม่พอ
  + ข้อเสียอีกอย่างคือ รวมยาก (ในแง่ของ `object` นึงมีกี่ `domain` ที่สามารถเรียกอ่านได้)
 + Option 2 - Access lists for objects
- + แต่ละ column ถูกจัดให้เป็น `access list` ไปเลยสำหรับ 1 `object` (`object` เก็บ `access list`)<br>
+ + แต่ละ column ถูกจัดให้เป็น `access list` ไปเลยสำหรับ 1 `object` (`object` เก็บ `access list`)
  + ใน 1 `object` เลย มี <`domain`, `rights-set`> define ไว้ว่ามี `domain` ไหนที่มี `access rights` สำหรับ `object` นี้บ้าง (`domain` ไหนไม่มีก็จะไม่เก็บ)
  + ข้อดีคือ Easily extended to contain default set -> If M ∈ default set, also allow access
 + Option 3 - Capability list for domains
