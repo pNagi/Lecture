@@ -138,6 +138,9 @@ _Note that Domain = user-id_
 + But doesn’t solve the general confinement(การจำกัด) problem
 
 ##Implement of Access Matrix
+_`access list` = <`domain`, `rights-set`>_<br>
+_`capability list` = <`object`, `rights-set`>_<br>
+
 + Generally, a sparse matrix
 + Option 1 - Global Table
  + เก็บ ordered triples <`domain`, `object`, `right-set`> ใน table
@@ -169,10 +172,6 @@ _Note that Domain = user-id_
  + `object` เก็บ unique bit patterns list เรียกว่า `**locks**`
  + `domain` เก็บ unique bit patterns list เรียกว่า `**keys**`
  + `domain` จะสามารถ access ได้แค่ `object` ที่ `key` matches กับ `lock` ไว้แล้ว
-
-_Note that:_
-+ _`access list` = <`domain`, `rights-set`>_
-+ _`capability list` = <`object`, `rights-set`>_
 
 # Glossary
 + execute (vt.) ดำเนินการ กระทำการ ระหารชีวิต
