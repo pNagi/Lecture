@@ -98,14 +98,14 @@ _Note that Domain = user-id_
  + Operations to add, delete access rights
  + Special access rights:
   <ul>
-   <li>owner of `Oi`</li>
-   <li>copy op from `Oi` to `Oj` (denoted by `*`)</li>
-   <li>control – `Di` can modify `Dj` access rights</li>
-   <li>transfer – switch from domain `Di` to `Dj`</li>
+   <li>_owner of `Oi`_</li>
+   <li>_copy op from `Oi` to `Oj` (denoted by `*`)_</li>
+   <li>_control – `Di` can modify `Dj` access rights_</li>
+   <li>_transfer – switch from domain `Di` to `Dj`_</li>
   </ul>
  + Copy and Owner applicable to an object
  + Control applicable to domain object
-+ Access matrix design separates mechanism from policy
++ **Access matrix** design separates mechanism from policy
  + Mechanism
  <ul>
   <li>Operating system provides access-matrix + rules</li>
@@ -114,10 +114,12 @@ _Note that Domain = user-id_
  + Policy
  <ul>
   <li>User dictates policy</li>
-  <li>Who can access what object and in what mode n But doesn’t solve the general confinement problem</li>
+  <li>Who can access what object and in what mode</li>
  </ul>
++ But doesn’t solve the general confinement(การจำกัด) problem
 
 # Glossary
 + execute (vt.) ดำเนินการ, กร ะทำการ, ประหารชีวิต
 + invoke (vt.) ก่อให้เกิด, วิงวอน
 + invoke on (phrv) อ้อนวอนให้มีบางสิ่งเกิดขึ้นกับ
++ confinement (n.) การจำกัด กักขัง
