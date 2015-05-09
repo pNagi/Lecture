@@ -31,22 +31,25 @@ _ในความหมายทางคอมคือ Permission ในก�
  + Can be static (during life of system, during life of process)
  + Or dynamic (changed by process as needed) - **domain switching, privilege escalation**
  + "Need to know" a similar concept regarding access to data
- + Must cosider "grain" aspect (grain ระบุว่ากำหนดสิทธิมากน้อยแค่ไหน)<br>
- [coarse-grained vs fine-grained](http://www.webfarmr.eu/2011/05/coarse-grained-vs-fine-grained-access-control-part-i/)<br>
++ Must cosider "grain" aspect (grain ระบุว่ากำหนดสิทธิมากน้อยแค่ไหน)<br>
+[coarse-grained vs fine-grained](http://www.webfarmr.eu/2011/05/coarse-grained-vs-fine-grained-access-control-part-i/)<br>
+<ul>
+ <li>**Rough-grained (coarse)** privilege management easier, simpler, but least privilege now done in large chunks(chunk = ชิ้นหนา)
  <ul>
- <ul><li>**Rough-grained (coarse)** privilege management easier, simpler, but least privilege now done in large chunks(chunk = ชิ้นหนา)
   <li>_coarse-grained access control will work on larger items_</li>
-  <li>For example, traditional Unix processes either have abilities of the associated user, or root<li>
+  <li>For example, traditional Unix processes either have abilities of the associated user, or root</li>
  </ul>
- <ul><li>**Fine-grained** management more complex, more overhead, but more protective</li>
+ <li>**Fine-grained** management more complex, more overhead, but more protective</li>
+ <ul> 
   <li>_fine-grained access control will work on smaller items_</li>
   <li>File ACL lists, RBAC</li>
  </ul>
 </ul>
 ```
- + Coarse: Employees can open the door.
- + Fine: Employees based in the US can open or close the door during office hours.
- + Finer: Employees in the Engineering department and based in the US can open or close the door during office hours if they are assigned to an active project.
+Examples
+ Coarse: Employees can open the door.
+ Fine: Employees based in the US can open or close the door during office hours.
+ Finer: Employees in the Engineering department and based in the US can open or close the door during office hours if they are assigned to an active project.
 ```
 + Domain can be user, process, procedure
 
