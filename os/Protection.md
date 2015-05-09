@@ -92,23 +92,32 @@ _Note that Domain = user-id_
 + **Access(i, j)** is the set of operations that a process excecuting in Domain[i] can invoke on Object[j]
 
 ##Use of Access Matrix
-<ul>
-<li>If a process in Domain Di tries to do “op” on object Oj, then “op” must be in the access matrix</li>
-<li>User who creates object can define access column for that object</li>
-<ul><li>Can be expanded to dynamic protection</li>
- <li>Operations to add, delete access rights</li>
- <ul><li>Special access rights:</li>
-  <li>owner of Oi</li>
-  <li>copy op from Oi to Oj (denoted by “*”)</li>
-  <li>control – Di can modify Dj access rights</li>
-  <li>transfer – switch from domain Di to Dj</li>
++ If a process in Domain `Di` tries to do “op” on object `Oj`, then “op” must be in the access matrix
++ User who creates object can define access column for that object
++ Can be expanded to dynamic protection
+ + Operations to add, delete access rights
+ + Special access rights:
+  <ul>
+   <li>owner of `Oi`</li>
+   <li>copy op from `Oi` to `Oj` (denoted by `*`)</li>
+   <li>control – `Di` can modify `Dj` access rights</li>
+   <li>transfer – switch from domain `Di` to `Dj`</li>
+  </ul>
+ + Copy and Owner applicable to an object
+ + Control applicable to domain object
++ Access matrix design separates mechanism from policy
+ + Mechanism
+ <ul>
+  <li>Operating system provides access-matrix + rules</li>
+  <li>If ensures that the matrix is only manipulated by authorized agents and that rules are strictly enforced</li>
  </ul>
- <li>Copy and Owner applicable to an object</li>
- <li>Control applicable to domain object</li>
+ + Policy
+ <ul>
+  <li>User dictates policy</li>
+  <li>Who can access what object and in what mode n But doesn’t solve the general confinement problem</li>
  </ul>
-</ul>
 
-Glossary
+# Glossary
 + execute (vt.) ดำเนินการ, กร ะทำการ, ประหารชีวิต
 + invoke (vt.) ก่อให้เกิด, วิงวอน
 + invoke on (phrv) อ้อนวอนให้มีบางสิ่งเกิดขึ้นกับ
