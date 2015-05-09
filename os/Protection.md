@@ -48,19 +48,20 @@ _ในความหมายทางคอมคือ Permission ในก�
 
 ##Domain Structure
 ####Access-right
-<object-name, rights-set><br>
-where _right-set_ is a subset of all valid operations that can be performed on the object
+form: < object-name, rights-set ><br>
+= where _right-set_ is a subset of all valid operations that can be performed on the object
 ####Domain
-set of access-rights
+= set of `access-rights`<br>
+_Note that Domain = user-id_
 
 ##Domain Implementation (UNIX)
 + Domain = user-id
-+ Domain switch accomplised via file system<br>
- Domain switch เปลี่ยน user ไปใช้อีก user
++ **Domain switch** accomplised via file system<br>
+ **Domain switch** เปลี่ยน user ไปใช้อีก user
  + Each file has associated with it a domain bit (setuid bit)
  + When file is executed and setuid = on, then user-id is set to owner of the file being executed
  + When execution completes user-id is reset
-+ Domain switch accomplished via passwords
++ **Domain switch** accomplished via passwords
  + `su` command temporarily switches to anothe user's domain when other domain's password provided<br>
    คำสั่ง `su` เป็นของ root เมื่อจะสั่งจึงทำงานด้วย root
 + Domain switching via commands
