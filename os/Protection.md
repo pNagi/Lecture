@@ -91,6 +91,25 @@ _Note that Domain = user-id_
 + Columns represent objects
 + **Access(i, j)** is the set of operations that a process excecuting in Domain[i] can invoke on Object[j]
 
+###Access Matrix คือตารางที่อธิบาย protection state
++ Rows คือ` subjects` หรือ `domain`
+ + ซึ่ง `subjects` คือ active entities เช่น (users, processes, etc.)
++ Column คือ `objects` ซึ่ง `objects` ในที่นี้แบ่งออกเป็นสองแบบ คือ
+ 1. Passive entity (not `subject`)
+ 2. Any entity acting passively (คืออาจเป็นพวก `subject` จากข้อบน)
+
+`Subject`/`Object` | `o1` | ... | `om` | `s1` | ... | `sn`
+---|---|---|---|---|---|---|---|---
+`s1` | 
+...|
+`sn`|
+
++ Subjects `S` = {`s1`,...,`sn`}
++ Objects `O` = {`o1`,...,`om`}
++ Rights `R` ={`r1`,...,`rk`}
++ Entries `A[si , oj]` ⊆ `R`
++ `A[si, oj]` = {`rx`,...,`ry`} คือ `subject` `si` มี `rights` `rx`,...,`ry` ใช้กับ object `oj`
+
 ##Use of Access Matrix
 + If a process in Domain `Di` tries to do “op” on object `Oj`, then “op” must be in the access matrix
 + User who creates object can define access column for that object
@@ -118,8 +137,22 @@ _Note that Domain = user-id_
  </ul>
 + But doesn’t solve the general confinement(การจำกัด) problem
 
+##Implement of Access Matrix
++ Generally, a sparse matrix
++ Option 1 - Global Table
+ + เก็บ ordered triples <`domain`, `object`, `right-set`> ใน table
+ <ul>+  `A` requested คำสั่ง (operation) `oj` ที่ `domain` `di` โดยการ search จาก table เพื่อหา <`di`, `oj`, `rk`>
+  <li> โดยที่ M ต้องเป็นคำสั่งที่อยู่ใน set ของ `Rk`</li>
+ </ul>
+ + ข้อเสียคือ table จะใหญ่มาก ทำให้ main memory ไม่พอ
+ + ข้อเสียอีกอย่างคือ รวมยาก (ในแง่ของ `object` นึงมีกี่ `domain` ที่สามารถเรียกอ่านได้)
++ Option 2 - Access lists for objects
+ + แต่ละ column
+
+
 # Glossary
-+ execute (vt.) ดำเนินการ, กร ะทำการ, ประหารชีวิต
-+ invoke (vt.) ก่อให้เกิด, วิงวอน
++ execute (vt.) ดำเนินการ กระทำการ ระหารชีวิต
++ invoke (vt.) ก่อให้เกิด วิงวอน
 + invoke on (phrv) อ้อนวอนให้มีบางสิ่งเกิดขึ้นกับ
 + confinement (n.) การจำกัด กักขัง
++ sparse (adj.) หร็อมแหร็ม บางตา มีน้อย ไม่มาก
