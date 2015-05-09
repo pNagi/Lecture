@@ -152,7 +152,7 @@ _`capability list` = <`object`, `rights-set`>_<br>
  + ข้อเสียอีกอย่างคือ รวมยาก (ในแง่ของ `object` นึงมีกี่ `domain` ที่สามารถเรียกอ่านได้)
 + Option 2 - Access lists for objects
  + แต่ละ column ถูกจัดให้เป็น `access list` ไปเลยสำหรับ 1 `object` (`object` เก็บ `access list`)<br>
- + ใน 1 object เลย มี <`domain`, `rights-set`> define ไว้ว่ามี `domain` ไหนที่มี `access rights` สำหรับ object นี้บ้าง (`domain` ไหนไม่มีก็จะไม่เก็บ)
+ + ใน 1 `object` เลย มี <`domain`, `rights-set`> define ไว้ว่ามี `domain` ไหนที่มี `access rights` สำหรับ `object` นี้บ้าง (`domain` ไหนไม่มีก็จะไม่เก็บ)
  + ข้อดีคือ Easily extended to contain default set -> If M ∈ default set, also allow access
 + Option 3 - Capability list for domains
  + คราวนี้สลับกันคือเป็น domain based คือ `domain` เป็นคนเก็บ `capability List`
@@ -169,9 +169,32 @@ _`capability list` = <`object`, `rights-set`>_<br>
   </ul>
 + Option 4 - Lock-key
  + แบบที่รวมทั้งสองอย่าง (เก็บทั้งสองแบบ `access-list` กับ `capability list`)
- + `object` เก็บ unique bit patterns list เรียกว่า `**locks**`
- + `domain` เก็บ unique bit patterns list เรียกว่า `**keys**`
+ + `object` เก็บ unique bit patterns list เรียกว่า **locks**
+ + `domain` เก็บ unique bit patterns list เรียกว่า **keys**
  + `domain` จะสามารถ access ได้แค่ `object` ที่ `key` matches กับ `lock` ไว้แล้ว
+
+##Comparison of Implementations
++ Many trade-offs to consider
+ + แบบ Global table คือมัน simple แต่กิน memory
+ + แบบ Access lists คือ ต้องมี `users`
+  <ul>
+   <li>จำกัดสิทธิของ `domain` ลำบาก เพราะ `rights` เก็บอยู่ที่ `object` ฝ่ายเดียว</li>
+   <li>ต้องเช็คก่อนทุกครั้งว่าใครเป็นคน access เข้ามาที่ `object` พอมีหลาย `objects` และหลาย `access rights` เลยทำให้ช้ามาก</li>
+  </ul>
+ + แบบ Capability lists คือ บอกชัดเจนว่าสามารถ access ที่ไหนได้บ้าง
+  <ul>
+   <li>แต่ข้อเสียคือ ยกเลิก(revoke) capabilities ลำบาก</li>
+  </ul>
+ + แบบ Lock-key ข้อดีคือ effective and flexible, สามารถส่ง `key` จาก `domain` ไปอีก `domain` อย่างอิสระ และ revoke(ยกเลิก) ง่าย
+
+#### Systems ส่วนใหญ่ใช้แบบ รวม access lists and capabilities
++ First access to an object -> access list searched
+ + If allowed, capability created and attached to
+process
+ <ul>
+  <li>Additional accesses need not be checked</li>
+ </ul>
+ + After last access, capability destroyed 4 Consider file system with ACLs per file
 
 # Glossary
 + execute (vt.) ดำเนินการ กระทำการ ระหารชีวิต
