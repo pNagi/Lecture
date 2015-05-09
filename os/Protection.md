@@ -31,14 +31,18 @@ _ในความหมายทางคอมคือ Permission ในก�
  + Can be static (during life of system, during life of process)
  + Or dynamic (changed by process as needed) - **domain switching, privilege escalation**
  + "Need to know" a similar concept regarding access to data
-+ Must cosider "grain" aspect (grain ระบุว่ากำหนดสิทธิมากน้อยแค่ไหน)<br>
+ + Must cosider "grain" aspect (grain ระบุว่ากำหนดสิทธิมากน้อยแค่ไหน)<br>
  [coarse-grained vs fine-grained](http://www.webfarmr.eu/2011/05/coarse-grained-vs-fine-grained-access-control-part-i/)<br>
- + **Rough-grained (coarse)** privilege management easier, simpler, but least privilege now done in large chunks(chunk = ชิ้นหนา)<br>
-  _coarse-grained access control will work on larger items_<br>
-   --> For example, traditional Unix processes either have abilities of the associated user, or root
- + **Fine-grained** management more complex, more overhead, but more protective<br>
-  _fine-grained access control will work on smaller items_<br>
-   --> File ACL lists, RBAC
+ <ul>
+ <ul><li>**Rough-grained (coarse)** privilege management easier, simpler, but least privilege now done in large chunks(chunk = ชิ้นหนา)
+  <li>_coarse-grained access control will work on larger items_</li>
+  <li>For example, traditional Unix processes either have abilities of the associated user, or root<li>
+ </ul>
+ <ul><li>**Fine-grained** management more complex, more overhead, but more protective</li>
+  <li>_fine-grained access control will work on smaller items_</li>
+  <li>File ACL lists, RBAC</li>
+ </ul>
+</ul>
 ```
  + Coarse: Employees can open the door.
  + Fine: Employees based in the US can open or close the door during office hours.
@@ -51,7 +55,7 @@ _ในความหมายทางคอมคือ Permission ในก�
 form: < object-name, rights-set ><br>
 = where _right-set_ is a subset of all valid operations that can be performed on the object
 ####Domain
-= set of `access-rights`<br>
+= set of _access-rights_<br>
 _Note that Domain = user-id_
 
 ##Domain Implementation (UNIX)
@@ -64,7 +68,7 @@ _Note that Domain = user-id_
 + **Domain switch** accomplished via passwords
  + `su` command temporarily switches to anothe user's domain when other domain's password provided<br>
    คำสั่ง `su` เป็นของ root เมื่อจะสั่งจึงทำงานด้วย root
-+ Domain switching via commands
++ **Domain switching** via commands
  + `sudo` command prefix executes specified command in another domain (if original domain has privilege or password given)
 
 ##Domain Implementation (MULTICS)
@@ -80,3 +84,28 @@ _Note that Domain = user-id_
 
 ##Access Matrix
 + View protection as a matrix (access matrix)
++ Rows represent domain
++ Columns represent objects
++ **Access(i, j)** is the set of operations that a process excecuting in Domain[i] can invoke on Object[j]
+
+##Use of Access Matrix
+<ul>
+<li>If a process in Domain Di tries to do “op” on object Oj, then “op” must be in the access matrix</li>
+<li>User who creates object can define access column for that object</li>
+<ul><li>Can be expanded to dynamic protection</li>
+ <li>Operations to add, delete access rights</li>
+ <ul><li>Special access rights:</li>
+  <li>owner of Oi</li>
+  <li>copy op from Oi to Oj (denoted by “*”)</li>
+  <li>control – Di can modify Dj access rights</li>
+  <li>transfer – switch from domain Di to Dj</li>
+ </ul>
+ <li>Copy and Owner applicable to an object</li>
+ <li>Control applicable to domain object</li>
+ </ul>
+</ul>
+
+Glossary
++ execute (vt.) ดำเนินการ, กร ะทำการ, ประหารชีวิต
++ invoke (vt.) ก่อให้เกิด, วิงวอน
++ invoke on (phrv) อ้อนวอนให้มีบางสิ่งเกิดขึ้นกับ
