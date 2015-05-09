@@ -23,7 +23,7 @@
 
 ## Principles of Protection
 _Privilege: (n.) ข้อได้เปรียบ, เอกสิทธ์, สิทธิพิเศษ_
-_ในความหมายทางคอมคือ Permission ในการ perform action ต่าง ๆ เช่นสร้างไฟล์ อ่านไฟล์ ลบไฟล์ access device
+_ในความหมายทางคอมคือ Permission ในการ perform action ต่าง ๆ เช่นสร้างไฟล์ อ่านไฟล์ ลบไฟล์ access device_
 + Guilding principle - **principle of least privilege**
  + Programs, users and systems should be given just enough **privileges** to perform their tasks<br>
  เราควรจะให้ privilege ต่อ 1 user ให้น้อยที่สุด เพื่อป้องกันการ hack
@@ -32,10 +32,10 @@ _ในความหมายทางคอมคือ Permission ในก�
  + Or dynamic (changed by process as needed) - **domain switching, privilege escalation**
  + "Need to know" a similar concept regarding access to data
 + Must cosider "grain" aspect (grain ระบุว่ากำหนดสิทธิมากน้อยแค่ไหน)
- + Rough-grained privilege management easier, simpler, nut least privilege now done in large chunks
-  + For example, traditional Unix processes either have abilities of the associated user, or root
- + Fine-grained management more complex, more overhead, but more protective
-  + File ACL lists, RBAC
+ + Rough-grained privilege management easier, simpler, nut least privilege now done in large chunks<br>
+  For example, traditional Unix processes either have abilities of the associated user, or root
+ + Fine-grained management more complex, more overhead, but more protective<br>
+  File ACL lists, RBAC
 + Domain can be user, process, procedure
 
 ##Domain Structure
@@ -59,3 +59,13 @@ _ในความหมายทางคอมคือ Permission ในก�
 ##Domain Implementation (MULTICS)
 + Let `Di` and `Dj` be any two domain rings
 + if `j < i` -> `Di` is subset of `Dj`
+
+##Multics Benefits and Limits
++ Ring/hierachical structure proviced more than the basic kernel/user or root/normal user design
++ Fairly complex -> more overhead
++ But does not allow strict need-to-know
+ + Object accessible in `Dj` but not in `Di`, then `j` must be < `i`
+ + But then every segment accessible in `Di` also accessible in `Dj`
+
+##Access Matrix
++ View protection as a matrix (access matrix)
