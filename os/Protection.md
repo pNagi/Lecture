@@ -26,7 +26,7 @@ _Privilege: (n.) ข้อได้เปรียบ, เอกสิทธ์,
 _ในความหมายทางคอมคือ Permission ในการ perform action ต่าง ๆ เช่นสร้างไฟล์ อ่านไฟล์ ลบไฟล์ access device
 + Guilding principle - **principle of least privilege**
  + Programs, users and systems should be given just enough **privileges** to perform their tasks<br>
- เราควรจะให้ privilege ให้น้อยที่สุด เพื่อป้องกันการ hack
+ เราควรจะให้ privilege ต่อ 1 user ให้น้อยที่สุด เพื่อป้องกันการ hack
  + Limits damage if entity has a bug, gets abused
  + Can be static (during life of system, during life of process)
  + Or dynamic (changed by process as needed) - **domain switching, privilege escalation**
@@ -39,9 +39,19 @@ _ในความหมายทางคอมคือ Permission ในก�
 + Domain can be user, process, procedure
 
 ##Domain Structure
++ Access-right = <object-name, rights-set>
+ where _right-set_ is a subset of all valid operations that can be performed on the object
++ Domain = set of access-rights
+
 ##Domain Implementation (UNIX)
-
-Domain switch เปลี่ยน user ไปใช้อีก user
-
-setuid
-ex. คำสั่ง su เป็นของ root เมื่อจะสั่งจึงทำงานด้วย root
++ Domain = user-id
++ Domain switch accomplised via file system
+ Domain switch เปลี่ยน user ไปใช้อีก user
+ + Each file has associated with it a domain bit (setuid bit)
+ + When file is executed and setuid = on, then user-id is set to owner of the file being executed
+ + When execution completes user-id is reset
++ Domain switch accomplished via passwords
+ + `su` command temporarily switches to anothe user's domain when other domain's password provided
+   คำสั่ง `su` เป็นของ root เมื่อจะสั่งจึงทำงานด้วย root
++ Domain switching via commands
+ + `sudo` command prefix executes specified command in another domain (if original domain has privilege or password given)
