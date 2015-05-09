@@ -45,7 +45,7 @@ _ในความหมายทางคอมคือ Permission ในก�
 
 ##Domain Implementation (UNIX)
 + Domain = user-id
-+ Domain switch accomplised via file system
++ Domain switch accomplised via file system<br>
  Domain switch เปลี่ยน user ไปใช้อีก user
  + Each file has associated with it a domain bit (setuid bit)
  + When file is executed and setuid = on, then user-id is set to owner of the file being executed
@@ -55,3 +55,7 @@ _ในความหมายทางคอมคือ Permission ในก�
    คำสั่ง `su` เป็นของ root เมื่อจะสั่งจึงทำงานด้วย root
 + Domain switching via commands
  + `sudo` command prefix executes specified command in another domain (if original domain has privilege or password given)
+
+##Domain Implementation (MULTICS)
++ Let `Di` and `Dj` be any two domain rings
++ if `j < i` -> `Di` is subset of `Dj`
