@@ -47,9 +47,11 @@ _ในความหมายทางคอมคือ Permission ในก�
 + Domain can be user, process, procedure
 
 ##Domain Structure
-+ Access-right = <object-name, rights-set><br>
- where _right-set_ is a subset of all valid operations that can be performed on the object
-+ Domain = set of access-rights
+####Access-right
+<object-name, rights-set><br>
+where _right-set_ is a subset of all valid operations that can be performed on the object
+####Domain
+set of access-rights
 
 ##Domain Implementation (UNIX)
 + Domain = user-id
