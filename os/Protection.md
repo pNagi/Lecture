@@ -196,6 +196,39 @@ process
  </ul>
  + After last access, capability destroyed 4 Consider file system with ACLs per file
 
+##Access Control
++ Protection can be applied to non-file resources
++ Oracle Solaris 10 provides **role- based access control (RBAC)** to implement least privilege<br>
+ แบบนี้คือ permission จะขึ้นอยู่กับ role ไม่ใช่ตัวบุคคล<br>
+ สมมุติ user คนนึงมี role เป็น admin ก็จะมีสิทธิเท่าที่ admin ทุกคนสามารถทำได้
+ + **Privilege** is right to execute system call or use an option within a system call
+ + Can be assigned to processes
+ + Users assigned **roles** granting access to privileges and programs
+ <ul>
+ <li>Enable role via password to gain its privileges</li>
+ </ul>
+ + Similar to access matrix
+
+##Revocation of Access Rights
++ Various options to remove the access right of a domain to an object
+ + **Immediate vs. delayed**
+ + **Selective vs. general**
+ + **Partial vs. total**
+ + **Temporary vs. permanent**
++ **Access List** – Delete access rights from access list
+ + **Simple** – search access list and remove entry
+ + **[Immediate]**, **[general or selective]**, **[total or partial]**, **[permanent or temporary]**
++ **Capability List** – Scheme required to locate capability in the system before capability can be revoked
+ + **Reacquisition** – periodic delete, with require and denial if revoked
+ + **Back-pointers** – set of pointers from each object to all capabilities of that object (Multics)
+ + **Indirection** – capability points to global table entry which points to object – delete entry from global table, not selective (CAL)
+ + **Keys** – unique bits associated with capability, generated when capability created
+ <ul>
+  <li>Master key associated with object, key matches master key for access</li>
+  <li>Revocation – create new master key</li>
+  <li>Policy decision of who can create and modify keys – object
+owner or others?</li>
+
 # Glossary
 + execute (vt.) ดำเนินการ กระทำการ ระหารชีวิต
 + invoke (vt.) ก่อให้เกิด วิงวอน
