@@ -141,14 +141,38 @@ _Note that Domain = user-id_
 + Generally, a sparse matrix
 + Option 1 - Global Table
  + เก็บ ordered triples <`domain`, `object`, `right-set`> ใน table
- <ul>+  `A` requested คำสั่ง (operation) `oj` ที่ `domain` `di` โดยการ search จาก table เพื่อหา <`di`, `oj`, `rk`>
+ +  `A` requested คำสั่ง (operation) `oj` ที่ `domain` `di` โดยการ search จาก table เพื่อหา <`di`, `oj`, `rk`>
+ <ul>
   <li> โดยที่ M ต้องเป็นคำสั่งที่อยู่ใน set ของ `Rk`</li>
  </ul>
  + ข้อเสียคือ table จะใหญ่มาก ทำให้ main memory ไม่พอ
  + ข้อเสียอีกอย่างคือ รวมยาก (ในแง่ของ `object` นึงมีกี่ `domain` ที่สามารถเรียกอ่านได้)
 + Option 2 - Access lists for objects
- + แต่ละ column
+ + แต่ละ column ถูกจัดให้เป็น `access list` ไปเลยสำหรับ 1 `object` (`object` เก็บ `access list`)<br>
+ + ใน 1 object เลย มี <`domain`, `rights-set`> define ไว้ว่ามี `domain` ไหนที่มี `access rights` สำหรับ object นี้บ้าง (`domain` ไหนไม่มีก็จะไม่เก็บ)
+ + ข้อดีคือ Easily extended to contain default set -> If M ∈ default set, also allow access
++ Option 3 - Capability list for domains
+ + คราวนี้สลับกันคือเป็น domain based คือ `domain` เป็นคนเก็บ `capability List`
+ + `object` represented by its name or address เรียกว่า `capability`
+ + สมมุติจะสั่ง คำสั่ง `M` บน `object` `oj` process ก็จะเรียกหา operation  ใน `capability list` ของ `domain` นั้น ๆ
+  <ul>
+   <li>คือถ้า `domain` ที่สั่งเป็นเจ้าของ `capability` ก็แสดงว่าสารมารถ access ได้</li>
+  </ul>
+ + `capability list` เกี่ยวข้องกับ `domain` ก็จริง แต่ตัว `domain` ไม่สามารถ `access` เข้าไปได้ (คือถ้าเข้าไปแก้ได้ มันก็แก้ให้ตัวเองมีสิทธิทำทุกอย่างได้ในระบบ)
+  <ul>
+   <li>เป็น protected object ที่ maintain โดย OS และ การ access แบบ indirect</li>
+   <li>Like a "secure pointer"</li>
+   <li>Idea can be extended up to applications</li>
+  </ul>
++ Option 4 - Lock-key
+ + แบบที่รวมทั้งสองอย่าง (เก็บทั้งสองแบบ `access-list` กับ `capability list`)
+ + `object` เก็บ unique bit patterns list เรียกว่า `**locks**`
+ + `domain` เก็บ unique bit patterns list เรียกว่า `**keys**`
+ + `domain` จะสามารถ access ได้แค่ `object` ที่ `key` matches กับ `lock` ไว้แล้ว
 
+_Note that:_
++ _`access list` = <`domain`, `rights-set`>_
++ _`capability list` = <`object`, `rights-set`>_
 
 # Glossary
 + execute (vt.) ดำเนินการ กระทำการ ระหารชีวิต
