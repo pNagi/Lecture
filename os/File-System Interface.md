@@ -24,7 +24,7 @@
 ##File Attribites
 + **Name** - เป็น information เดียวที่ human-readable
 + **Identifier** - id กำหนดใน file system
-+ **Type**
++ **Type** นามสกุลไฟล์
 + **Location** - pointer to file location
 + **Size**
 + **Protection** - {reading, writing, executing}
@@ -38,12 +38,19 @@
 + `Read` – at **read pointer** location
 + `Reposition within file` - seek
 + `Delete`
-+ `Truncate` (vt. ตัดสั้น)
++ `Truncate` (vt. ตัดสั้น) ลบเนื้อหาภายในแต่คง attribute เดิมไว้
 + `Open(Fi)` – search the directory structure on disk for entry `Fi`, and move the content of entry to memory
 + `Close (Fi)` – move the content of entry `Fi` in memory to directory structure on disk
 
 ##Open Files
-skip
++ Several pieces of data are needed to manage open files:
+ + Open-file table: tracks open files เก็บว่าไฟล์ไหนถูกเปิดแล้วบ้าง
+ + File pointer: pointer to last read/write location, per process that has the file open
+ + File-open count: counter of number of times a file is open 
+ <ul><li> to allow removal of data from open-file table when last processes closes it</li></ul><br>
+ นับว่ามีไฟล์ถูกเก็บอยู่ในระบบกี่ไฟล์
+ + Disk location of the file: cache of data access information
+ + Access rights: per-process access mode information
 
 ##Open File Locking
 + จัดการโดย OS and file systems
@@ -57,7 +64,7 @@ skip
  + **Advisory** - **เช็คสถานะก่อน** ค่อยคิดว่าจะทำไง
  
 ##File Types - Name, Extension
-skip
+(pic)
 
 ##File Structure
 + None - sequence of words, bytes n Simple record structure
