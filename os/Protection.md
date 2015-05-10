@@ -24,7 +24,7 @@
 ## Principles of Protection
 _Privilege: (n.) ข้อได้เปรียบ, เอกสิทธ์, สิทธิพิเศษ_<br>
 _ในความหมายทางคอมคือ Permission ในการ perform action ต่าง ๆ เช่นสร้างไฟล์ อ่านไฟล์ ลบไฟล์ access device_
-+ Guilding principle - **principle of least privilege**
++ **Principle of least privilege** ให้แต่ละ users หรือ processes มี privilege แค่เท่าที่ใช้ (ให้น้อยที่สุด)
  + Programs, users and systems should be given just enough **privileges** to perform their tasks<br>
  เราควรจะให้ privilege ต่อ 1 user ให้น้อยที่สุด เพื่อป้องกันการ hack
  + Limits damage if entity has a bug, gets abused
