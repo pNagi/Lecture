@@ -54,6 +54,9 @@ Examples
 + Domain can be user, process, procedure
 
 ##Domain Structure
+
+![](https://github.com/pNagi/Lecture/blob/master/img/14_01_ThreeDomains.jpg)
+
 ####Access-right
 form: < object-name, rights-set ><br>
 = where _right-set_ is a subset of all valid operations that can be performed on the object
@@ -77,6 +80,8 @@ _Note that Domain = user-id_
 ##Domain Implementation (MULTICS)
 + Let `Di` and `Dj` be any two domain rings
 + if `j < i` -> `Di` is subset of `Dj`
+
+![](https://github.com/pNagi/Lecture/blob/master/img/14_02_MULTICS_Rings.jpg)
 
 ##Multics Benefits and Limits
 + Ring/hierachical structure proviced more than the basic kernel/user or root/normal user design
