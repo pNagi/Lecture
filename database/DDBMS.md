@@ -12,6 +12,8 @@
 ##Evolution of Distributed Processing and Distributed Data
 + Need to share resources across a network
 
+<br>เดี๋ยวกลับมาเขียนอธิบาย
+
 ###1970s
 + Main frames
   + Timesharing
@@ -262,6 +264,9 @@ User เข้าใช้ผ่าน Application
 ###DDBMS
 software ที่จัดการระบบฐานข้อมูล และอำนวยความสะดวกให้ user
 
+###Fragments (ขี้เกียจอ่ะ เดี๋ยวกลับมาเขียน)
+
+
 ##Distributed Processing (คนละอันกับ DDBMS นะเฮ้ย)
 #####*การประมวลผลแบบกระจาย*
 
@@ -269,7 +274,17 @@ software ที่จัดการระบบฐานข้อมูล แ�
 + สามารถ access บนเครือข่าย computer โดยข้อมูลที่เป็นศูนย์กลาง user สามารถ access ได้
 + มีฐานข้อมูลที่เดียว(ไม่แน่ใจ)
 
-
+###หัวข้อที่เหลือ
++ Distributed Query Processing
++ Distributed Transaction Processing
++ Distributed Concurrency Control
++ Primary Copy
+ + Distributed copy of data item
++ Centralized Coordination
++ ￼Distributed Recovery Management
++ Distributed Recovery Control
++ Distributed Transaction
++ Two-Phase Commit (2PC)
 
 ##Summary
 + Utilizing distributed processing and data can significantly improve DBMS services but at the cost of new design challenges.
