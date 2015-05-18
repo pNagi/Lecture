@@ -177,7 +177,9 @@ Middleware ช่วยให้ clients กับ servers ติดต่อก
 ![Multiplier-Tier](./img/db_ddbms-Multiplier_Tier_Web_Server.png)
 
 ##Parallel DBMS
+การจัดการฐานข้อมูลแบบขนาน
 *resources = processors, disks, and memory*
++ คือ DBMS ที่รันบน multiprocessor
 + วาง resources แบบ parallel กัน (วางได้หลายแบบ เดี๋ยวมีแบบบอกข้างล่าง)
 + แบ่งงานระหว่าง resources เพื่อให้ได้ performance ตามที่ต้องการ (scaleup, speedup and availability)
 + Uses high speed network, operating system, and storage system
@@ -191,9 +193,20 @@ Resource
 + M: memory
 + N: high-speed network
 วาง resource แบบ:
-+ SE: shared everything
++ SE: shared everything(คือหาไม่เจอ)
 + SD: shared disk
 + SN: shared nothing
+
+###วางแบบ shared-everything(ในสไลด์มีตัวนี้แต่หาข้อมูลไม่เจอเลย)
+
+###วางแบบ shared-memory
+![shared-memory](./img/db_ddbms-Shared_Memory.jpg)
+
+###วางแบบ shared-disk
+![shared-memory](./img/db_ddbms-Shared_Disk.jpg)
+
+###วางแบบ shared-nothing
+![shared-memory](./img/db_ddbms-Shared_Nothing.jpg)
 
 ##Distributed Database
 คนใช้จะมองว่าเป็น single database คือมีระบบฐานข้อมูลอันเดียว
@@ -206,8 +219,57 @@ Resource
 *use data stored at more than one site*
 ![Global-Requests](./img/db_ddbms-Global_Requests.png)
 
+###Component of a DDBMS
+![DDBMS](./img/db_ddbms-Component.png)
+
 ##Component of a DDBMS
 ![DDBMS](./img/db_ddbms-Component.png)
+
+##Distributed DBMS (DDBMS)
+#####*ระบบการจัดการฐานข้อมูลแบบกระจาย*
+
+###มุมมองทาง Logical
++ มี 1 ฐานข้อมูล (single logical database)
++ ซึ่งแบ่งออกเป็น `fragments` ต่าง ๆ
++ โดย `fragments` นั้นจะถูกจัดเก็บลงในคอมเครื่องเดียวหรือหลายเครื่องก็ได้
++ แต่อยู่ภายใต้การควบคุมของแต่ละ DBMS
++ คอมแต่ละตัวจะมีการเชื่อมต่อสื่อสารกันแบบเครือข่าย
++ ซึ่งแต่ละ site หรือสาขาก็สามารถประมวลผลเองได้โดยอิสระ
++ และ แต่ละ user สามารถเรียกใช้บริการให้ประมวลผลหรือจัดเก็บช้อมูลลงสาขาตัวเองหรือสาขาอื่น ๆ ที่อยู่ในเครือข่ายได้
+
+###มุมมองทาง Physical
++ มีการจัดเก็บข้อมูลอยู่ในฐานข้อมูลที่กระจายกันอยู่
++ กระจายอยู่ใน**คอมหลายเครื่อง**และ**คอมอยู่คนละที่**
++ แต่สามารถเชื่อมโยงกันได้ผ่านระบบเครือข่าย
+
+###การใช้งาน
+User เข้าใช้ผ่าน Application
++ สามารถตั้งให้ใช้ได้แต่ local(ใช้ข้อมูลจากสาขาตัวเอง) หรือแบบ global(ใช้ข้อมูลจากสาขาอื่น) ได้
+
+###Concept
++ สรุปแล้ว DDBMS คือ software ที่ช่วยให้ user มองผ่าน(Transparent)ความเป็นจริงที่ว่าระบบข้างหลังนั้นยุ่งยากแค่ไหน
++ เพื่อที่ user จะได้ใช้งานได้แม้ไม่รู้ว่าระบบด้านหลังจัดเก็บแบบไหน
+
+###Component
++ แต่ละสาขา (site) ไม่จำเป็นต้องมี local database เป็นของตัวเอง
+ตามรูป
+รูป
+
+##Summary
+###Distributed Database
+คือระบบที่กระจายฐานข้อมูลไปยังที่ต่าง ๆ และ เชื่อมต่อกันผ่านระบบเครือข่าย
+
+###DDBMS
+software ที่จัดการระบบฐานข้อมูล และอำนวยความสะดวกให้ user
+
+##Distributed Processing (คนละอันกับ DDBMS นะเฮ้ย)
+#####*การประมวลผลแบบกระจาย*
+
++ Distributed Processing คือ Centralized Database (ฐานข้อมูลแบบศูนย์รวม)
++ สามารถ access บนเครือข่าย computer โดยข้อมูลที่เป็นศูนย์กลาง user สามารถ access ได้
++ มีฐานข้อมูลที่เดียว(ไม่แน่ใจ)
+
+
 
 ##Summary
 + Utilizing distributed processing and data can significantly improve DBMS services but at the cost of new design challenges.
