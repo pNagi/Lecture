@@ -102,7 +102,8 @@
   software for process management
 
 ###Tasks to Distributed
-performed on client or remotely on a server
+ส่วนเลเยอร์ที่ต้องแบ่งกันทำ<br>
+*(performed on client or remotely on a server)*
 + **Presentation**
   <ul>
   code to maintain graphical user interface
@@ -126,14 +127,12 @@ performed on client or remotely on a server
 
 ![](./img/db_ddbms-05.png)
 ![](./img/db_ddbms-06.png)
-![](./img/db_ddbms-07.png)
 
 ###Middleware -> Interoperability
-+ A software component that performs **process management**
-+ Allow clients and servers to exist on different platforms.
-+ Allow servers to efficiently process messages from **a large number of clients**
-+ Often located on **a dedicated computer**
-
++ คือ software ตัวที่จะเป็นคนทำ **process management**
++ เป็นตัวกลางสื่อสารระหว่าง clients กับ servers แม้จะคนละ platform
++ รับมือกับ messages มหาศาลจาก **a large number of clients**
++ ส่วนใหญ่ middleware จะเป็นคอมพิวเตอร์ตัวนึงที่สละมาเพื่อเป็น middleware โดยเฉพาะ
 ex. ODBC, JDBC
 
 ![](./img/db_ddbms-08.png)
@@ -149,22 +148,66 @@ Middleware ช่วยให้ clients กับ servers ติดต่อก
  + However,the data access driver supports independence between an application and the proprietary SQL supported by a DBMS vendor.
 
 ####Two-Tier Architecture
+มีสองฝั่งคือ Client กับ Server
++ Client เก็บ `user interface code`
++ Server เก็บ `data access logic`
++ Client กับ Server share `Validation` กับ  `Business logic` (ก็คือมีทั้งสองฝั่ง)
+
+![Two-Tier](./img/db_ddbms-Two_Tier.png)
+
 ####Three-Tier Architecture
-+ Middleware Server
-+ Application Server
++ เพื่อเพิ่ม performance ก็เลยเพิ่ม Layer ขึ้นมาอีกตัวเป็นตัวไหนก็ได้จากสองตัวนี้
+  + Middleware Server
+  + Application Server
++ ส่วน additional server software อาจจะเก็บไว้ที่คอมเครื่องอื่นก็ได้ หรือจะกระจายอยู่ทั้ง Clients รือ Servers ก็ได้
+
+![Three-Tier](./img/db_ddbms-Three_Tier_Middleware.png)
+![Three-Tier](./img/db_ddbms-Three_Tier_Application.png)
+
 ####Multiplier Architecture
++ เพิ่มหลายตัวรวมเป็น
+  + Client
+  + Server
+  + Middleware Server
+  + Application Server
++ ทำให้ส่วนแบ่งของ processing ทำงาน flexible มากขึ้น
++ application จะเป็นคนทำส่วน business logic และ manage ข้อมูลพิเศษเช่น ไฟล์รูป
+
+![Multiplier-Tier](./img/db_ddbms-Multiplier_Tier.png)
+![Multiplier-Tier](./img/db_ddbms-Multiplier_Tier_Web_Server.png)
 
 ##Parallel DBMS
-+ Uses a collection of resources (processors, disks, and memory) to perform work in parallel
-+ Divide work among resources to achieve desired performance (scaleup and speedup) and availability.
+*resources = processors, disks, and memory*
++ วาง resources แบบ parallel กัน (วางได้หลายแบบ เดี๋ยวมีแบบบอกข้างล่าง)
++ แบ่งงานระหว่าง resources เพื่อให้ได้ performance ตามที่ต้องการ (scaleup, speedup and availability)
 + Uses high speed network, operating system, and storage system
 + Purchase decision involves more than parallel DBMS
 
+![parallel](./img/db_ddbms-Parallel.png)
+
 ###Basic Architecture
-###Distributed Database
+Resource
++ P: processor
++ M: memory
++ N: high-speed network
+วาง resource แบบ:
++ SE: shared everything
++ SD: shared disk
++ SN: shared nothing
 
-##￼Distributed Database Architectures
+##Distributed Database
+คนใช้จะมองว่าเป็น single database คือมีระบบฐานข้อมูลอันเดียว
+แต่จริง ๆ แล้วเป็นหลาย ๆ database เชื่อมต่อกันอยู่ข้างหลัง
+###￼Distributed Database Architectures
++ **Component Architecture** manages distributed database requests.
++ **Schema Architecture** provides additional layers of data description (global, local).
 
+####Global Requests:
+*use data stored at more than one site*
+![Global-Requests](./img/db_ddbms-Global_Requests.png)
+
+##Component of a DDBMS
+![DDBMS](./img/db_ddbms-Component.png)
 
 ##Summary
 + Utilizing distributed processing and data can significantly improve DBMS services but at the cost of new design challenges.
