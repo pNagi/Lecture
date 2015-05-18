@@ -27,10 +27,14 @@
   + request to server
   + server performs request and communicates result to client
 
+####Timesharing
 ![Timesharing](./img/db_ddbms-01.png)
+####Simple Resource Sharing
 ![Remote Procedure Call](./img/db_ddbms-02.png)
-![File Sharing](./img/db_ddbms-03.png)
-![Client-Server](./img/db_ddbms-04.png)
+####Client-Server Processing
+![Client-Server](./img/db_ddbms-03.png)
+####Distributed Processing and Data
+![Client-Server approach](./img/db_ddbms-04.png)
 
 ##Motivation
 ###For Client-Server Processing
@@ -120,7 +124,9 @@ performed on client or remotely on a server
   code to extract(สกัด) data to answer queries and modify database
   </ul>
 
-แปะรูปที
+![](./img/db_ddbms-05.png)
+![](./img/db_ddbms-06.png)
+![](./img/db_ddbms-07.png)
 
 ###Middleware -> Interoperability
 + A software component that performs **process management**
@@ -129,15 +135,47 @@ performed on client or remotely on a server
 + Often located on **a dedicated computer**
 
 ex. ODBC, JDBC
-แปะรูปที
+
+![](./img/db_ddbms-08.png)
+![](./img/db_ddbms-09.png)
+
+Middleware ช่วยให้ clients กับ servers ติดต่อกันได้แม้ไม่ได้ใช้ platform เดียวกัน
+
+###Data Access Middleware
++ เป็นส่วนประสานงานระหว่าง relational กับ non relational data โดยใช้ SQL (ODBC,JDBC)
++ Requests to access data from a DBMS are sent to a data access driver rather than directly to the DBMS.
++ The data access driver converts the SQL statement into the SQL supported by the DBMS and then routes the request to the DBMS.
++ The data access driver adds another layer of overhead between an application and a DBMS.
+ + However,the data access driver supports independence between an application and the proprietary SQL supported by a DBMS vendor.
+
+####Two-Tier Architecture
+####Three-Tier Architecture
++ Middleware Server
++ Application Server
+####Multiplier Architecture
+
+##Parallel DBMS
++ Uses a collection of resources (processors, disks, and memory) to perform work in parallel
++ Divide work among resources to achieve desired performance (scaleup and speedup) and availability.
++ Uses high speed network, operating system, and storage system
++ Purchase decision involves more than parallel DBMS
+
+###Basic Architecture
+###Distributed Database
+
+##￼Distributed Database Architectures
 
 
+##Summary
++ Utilizing distributed processing and data can significantly improve DBMS services but at the cost of new design challenges.
++ Client-server architectures provide alternatives among cost, complexity, and benefit levels.
++ Parallel database processing provides improved performance (speedup and scaleup) and availability.
++ Architectures for distributed DBMSs differ in the integration of the local databases and level of data independence.
 
-
-
-
-
-
+##Glossary
+###Relational Database
+ฐานข้อมูลเชิงสัมพันธ์<br>
+*ฐานข้อมูลแบบหนึ่งซึ่งประกอบด้วยตารางข้อมูลจำนวนมาก แต่ละตารางอาจใช้เก็บข้อมูลเกี่ยวกับเรื่องของคน สถานที่ เหตุการณ์ สิ่งต่างๆ หรือความสัมพันธ์ระหว่างเรื่องเหล่านี้ การเก็บข้อมูลเป็นตารางๆ นี้นอกจากมีลักษณะสอดคล้องกับการใช้งานข้อมูลในชีวิตประจำวันเช่น ตารางเดินรถไฟแล้ว ยังมีพื้นฐานหลัการมาจากคณิตศาสตร์ที่เรียกว่า ความสัมพันธ์ หรือ relations ด้วย*
 
 
 
