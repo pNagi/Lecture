@@ -135,6 +135,7 @@
 + เป็นตัวกลางสื่อสารระหว่าง clients กับ servers แม้จะคนละ platform
 + รับมือกับ messages มหาศาลจาก **a large number of clients**
 + ส่วนใหญ่ middleware จะเป็นคอมพิวเตอร์ตัวนึงที่สละมาเพื่อเป็น middleware โดยเฉพาะ
+
 ex. ODBC, JDBC
 
 ![](./img/db_ddbms-08.png)
@@ -180,7 +181,7 @@ Middleware ช่วยให้ clients กับ servers ติดต่อก
 
 ##Parallel DBMS
 การจัดการฐานข้อมูลแบบขนาน
-*resources = processors, disks, and memory*
+<br>*resources = processors, disks, and memory*
 + คือ DBMS ที่รันบน multiprocessor
 + วาง resources แบบ parallel กัน (วางได้หลายแบบ เดี๋ยวมีแบบบอกข้างล่าง)
 + แบ่งงานระหว่าง resources เพื่อให้ได้ performance ตามที่ต้องการ (scaleup, speedup and availability)
