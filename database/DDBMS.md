@@ -27,6 +27,11 @@
   + request to server
   + server performs request and communicates result to client
 
+![Timesharing](./img/db_ddbms-01.png)
+![Remote Procedure Call](./img/db_ddbms-02.png)
+![File Sharing](./img/db_ddbms-03.png)
+![Client-Server](./img/db_ddbms-04.png)
+
 ##Motivation
 ###For Client-Server Processing
 + Flexibility
@@ -35,7 +40,7 @@
   </ul>
 + Scalability
   <ul>
-  support เวลาเปลี่ยน hardware หรือ software (ที่มีผลต่อ capacity)
+  support เวลาเปลี่ยน hardware หรือ software (ที่ capacity มีผลกับระบบ)
   </ul>
 + Interoperability
   <ul>
@@ -70,7 +75,7 @@
   </ul>
 + Reliability<br>
   <ul>
-  ทำให้ data พร้อมใช้งาน(ว่าง)บ่อย ๆ ก็เลยก้อป data ไปไว้หลาย ๆ ที่(site)
+  ทำให้ data พร้อมใช้งาน(ว่าง)บ่อย ๆ ก็เลยก้อป data ไปไว้หลาย ๆ ที่ (site)
   </ul>
 
 ###Summary of Distributed Processing and Data
@@ -114,6 +119,17 @@ performed on client or remotely on a server
   <ul>
   code to extract(สกัด) data to answer queries and modify database
   </ul>
+
+แปะรูปที
+
+###Middleware -> Interoperability
++ A software component that performs **process management**
++ Allow clients and servers to exist on different platforms.
++ Allow servers to efficiently process messages from **a large number of clients**
++ Often located on **a dedicated computer**
+
+ex. ODBC, JDBC
+แปะรูปที
 
 
 
