@@ -93,6 +93,9 @@
 | Distributed Databases | Local control of data, improved performance, reduced communication costs, increased reliability | High complexity, additional security concerns |
 
 ##Client-Server Database Architectures
+
+[อ่านเองซะ](http://www.nextproject.net/contents/?00057)
+
 + แบ่งเป็นสองฝั่งคือ Client กับ Server โดยมี  Network เป็นตัวเชื่อม
 + เป็นระบบแบบ ส่ง messages (request for service) โดยส่งระหว่าง clients กับ servers
 
