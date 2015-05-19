@@ -34,3 +34,27 @@ User เข้าใช้ผ่าน Application
 
 ###DDBMS
 software ที่จัดการระบบฐานข้อมูล และอำนวยความสะดวกให้ user
+
+
+##จดส่วนสำคัญ
++ สิ่งที่ user เห็น คือ Single Logical Database
+
++ Local Database กับ Remote Database
+
++ A distributed database management system is then defined as the software system that permits the management of the DDBS and makes the distribution transparent to the users
+
+##หลักการพื้นฐาน
+
+1. มีความเป็นอิสระในการประมวลผล (Local Automomy)
+2. ไม่มีระบบใดท่ีทําหน้าท่ีเป็นศูนย์กลางในการควบคุม (No reliance on a central site)
+3. การทํางานเป็นไปอย่างต่อเนื่อง (Continuous Operation)
+4. ความเป็นอสิระกับท่ีตั้ง (Location independence/transparency)
+5. ความเป็นอิสระของการแตกกระจาย (Fragmentation independence/transparency)
+6. การมองผ่านการเก็บซ้ํา (Replication transparency/ Replication independence)
+7. การจัดการการสืบค้นแบบกระจาย (Distributed query processing)
+8. การจัดการรายการเปลี่ยนแปลงแบบกระจาย (Distributed transaction management)
+ + ใช้งานโปรโตคอลที่เรียกว่า “Two-phase commit”
+9. เป็นอิสระกับเคร่ืองที่ใช้งาน(Hardware independence)
+10. เป็นอิสระกับโปรแกรมระบบปฏิบัติการ(Operating system independence)
+11. เป็นอิสระกับระบบเครือข่าย(Network independence)
+12. เป็นอิสระกับระบบจัดการฐานข้อมลู (DBMS independence)
