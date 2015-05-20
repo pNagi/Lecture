@@ -54,6 +54,8 @@
 + รับมือกับ messages มหาศาลจาก clients มากมาย
 + ส่วนใหญ่ middleware จะเป็นคอมพิวเตอร์ตัวนึงที่สละมาเพื่อเป็น middleware โดยเฉพาะ
 
+##Client-Server Architecture
+
 ###Two-Tier
 + Client
 + Server
