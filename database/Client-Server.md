@@ -7,7 +7,7 @@
 3. Client-Server Architecture
 
 
-###1.Host-based Architecture
+###1. Host-based Architecture
 + การทำงานหนักไปที่ host
 
 ![host](./img/client-server_host.png)
@@ -21,7 +21,7 @@
 
 ** สถาปัตยกรรมแบบนี้จะเรียกเครื่องแม่ข่ายว่า Host ซึ่งมีความหมายเดียวกันกับ คำว่า Server
 
-###2.Client-based Architecture
+###2. Client-based Architecture
 + การทำงานทุกอย่างจะอยู่ที่ Client
 + Server ทำหน้าที่เป็น Data Storage
 + แบบนี้ไม่ค่อยเป็นที่นิยม เนื่องจากคอขวดของระบบอยู่ที่เครือข่ายเพราะสถาปัตยกรรมแบบนี้ ใช้ Bandwidth ค่อนข้างสูง
@@ -30,7 +30,7 @@
 
 ![host](./img/client-server_client-base.png)
 
-###1.Client-Server Architecture
+###3. Client-Server Architecture
 + การทำงานจะแบ่งกันทำ
 + โดยงานใดอยู่ใกล้ User ก็จะนำไปไว้ในฝั่ง Client
  + เช่น Presentation logic และ Application logic
