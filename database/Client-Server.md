@@ -58,17 +58,18 @@
 + Client
 + Server
 
-![2tier](./img/client-server_2tier)
+![2tier](./img/client-server_2tier.png)
 
-###Two-Tier
+###Three-Tier
 + Client
 + Server
++ middleware or Application Server
 
-![3tier](./img/client-server_3tier)
+![3tier](./img/client-server_3tier.png)
 
 ###N-Tier or Multi-Tier
 + Client
 + Server
-+ Middleware / Application or more
++ Middleware, Application Server or more
 
-![ntier](./img/client-server_ntier)
+![ntier](./img/client-server_ntier.png)
