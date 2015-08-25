@@ -34,10 +34,17 @@ Only at first, plan is going on time
 
 What are 4 "dimentions" of a software project that affect the speed of development?
 
-- **P**eople
-- **P**rocess
-- **P**roduct
-- **T**echnology
+- `People`
+- `Process`
+- `Product`
+- `Technology`
 
 See *Rapid Development* for good, entertaining discussion of these.
 Why they matter. What you can do to "leverage" them.
+
+1. Which of these 4 dimensions provides *greatest "leverage" for improving development speed?*
+
+  `People`?
+
+2. Which of these 4 provides *least consistent benefit on development speed?*
+
