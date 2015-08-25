@@ -29,3 +29,15 @@ Only at first, plan is going on time
 3. continuous integration
 
 *RUP Ten Best Practices*: **Use a Component-oriented architecture.**
+
+---
+
+What are 4 "dimentions" of a software project that affect the speed of development?
+
+- **P**eople
+- **P**rocess
+- **P**roduct
+- **T**echnology
+
+See *Rapid Development* for good, entertaining discussion of these.
+Why they matter. What you can do to "leverage" them.
